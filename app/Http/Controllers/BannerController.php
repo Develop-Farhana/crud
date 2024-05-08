@@ -12,7 +12,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        return view('banner.index');
+        $banners = Banner::all(); // Fetch all services from the database
+        return view('banner.index', ['banners' => $banners]);
 
     }
 
@@ -55,7 +56,10 @@ class BannerController extends Controller
     /**
      * Display the specified resource.
      */
-    
+    public function show(string $id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.

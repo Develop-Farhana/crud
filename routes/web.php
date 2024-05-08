@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
@@ -58,9 +59,9 @@ Route::get('/single-project/{id}', [FrontController::class, 'view'])->name('sing
 
 //home page backend
 
-// Route::get('home-page',[BannerController:: class, 'index']);
+Route::get('home-page',[BannerController:: class, 'index'])->name('home-page');
 
-Route::get('home-page', [BannerController::class, 'index'])->name('home-page');
+// Route::get('home-page', [BannerController::class, 'index'])->name('home-page');
 Route::get('/add-banner', [BannerController::class, 'create'])->name('add-banner');
 
 // adding services
@@ -74,3 +75,5 @@ Route::put('/update/{id}', [BannerController::class, 'update'])->name('post-bann
 // deleting the services
 
 Route::get('/remove-banner/{banner}', [BannerController::class, 'destroy'])->name('remove-banner.destroy');
+
+

@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class CustomerController extends Controller
+use App\Models\Banner;
+class BannerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-         return view('customer.index');
+        $banners = Banner::all(); // Fetch all services from the database
+        return view('banner.index', ['banners' => $banners]);
     }
 
     /**

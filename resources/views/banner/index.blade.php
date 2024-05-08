@@ -1,10 +1,10 @@
-@extends('masters')
 
-@section('style')
 <!-- Include CSS -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
     <!-- You can remove this line if you're not using Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,9 +52,6 @@
         }
     </style>
 
-@endsection
-
-@section('content')
 
 
 <h1>hello</h1>
@@ -62,7 +59,7 @@
         <h2>Service Page</h2>
         <div class="d-flex justify-content-center">
             <button type="button" class="btn btn-primary"
-                onclick="window.location='#'">Add</button>
+                onclick="window.location='{{route('add-banner')}}'">Add</button>
 
 
             <!-- Add this button -->
@@ -132,9 +129,7 @@
 
     </div>
 
-    @endsection
-
-    @section('script')
+    
     <script>
         // Wrap DataTables initialization inside $(document).ready()
         $(document).ready(function() {
@@ -156,4 +151,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
     </script>
-@endsection
