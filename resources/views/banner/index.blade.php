@@ -1,5 +1,4 @@
-
-@section('title', 'add service')
+@extends('masters')
 
 @section('style')
 <!-- Include CSS -->
@@ -58,12 +57,12 @@
 @section('content')
 
 
-
+<h1>hello</h1>
 <div class="container">
         <h2>Service Page</h2>
         <div class="d-flex justify-content-center">
             <button type="button" class="btn btn-primary"
-                onclick="window.location='{{ route('add-service') }}'">Add</button>
+                onclick="window.location='#'">Add</button>
 
 
             <!-- Add this button -->
@@ -84,14 +83,12 @@
             </thead>
             <tbody id="propertyTableBody">
 
-                @foreach ($services as $service)
+                @foreach ($banners as $banner)
                     <tr>
-                        <td>{{ $service->id }}</td>
-                        <td>{{ $service->title }}</td>
-                        <td>{{ $service->description }}</td>
+                        <td>{{ $banner->id }}</td>
                         <td>
-                            <a href="{{ asset($service->image_url) }}" target="_blank">
-                                <img src="{{ asset($service->image_url) }}" alt="Service Image"
+                            <a href="{{ asset($banner->image) }}" target="_blank">
+                                <img src="{{ asset($banner->image) }}" alt="banner Image"
                                     style="max-width: 90px;">
                             </a>
                         </td>
@@ -103,12 +100,12 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item"
-                                            href="{{ route('post-service.edit', $service->id) }}"><button
+                                            href="{{ route('post-banner.edit', $banner->id) }}"><button
                                                 type="button" class="btn btn-sm btn-warning btn-block"><i
                                                     class="bi bi-pencil-square"></i>Edit</button></a></li>
                                     <li>
 
-                                        <form action="{{ route('remove-service.destroy', $service->id) }}"
+                                        <form action="{{ route('remove-banner.destroy', $banner->id) }}"
                                             method="GET">
                                             @csrf
 

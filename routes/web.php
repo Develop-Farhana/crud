@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+
 
 
 /*
@@ -53,3 +55,22 @@ Route::get('delete-proj/{id}',[ProjectController::class,'destroy']);
 
 Route::get('home', [FrontController::class, 'show'])->name('home');
 Route::get('/single-project/{id}', [FrontController::class, 'view'])->name('single-projects');
+
+//home page backend
+
+// Route::get('home-page',[BannerController:: class, 'index']);
+
+Route::get('home-page', [BannerController::class, 'index'])->name('home-page');
+Route::get('/add-banner', [BannerController::class, 'create'])->name('add-banner');
+
+// adding services
+Route::post('/post-banner', [BannerController::class, 'store'])->name('post-banner.store');
+
+//editing services
+Route::get('/post-banner/{id}', [BannerController::class, 'edit'])->name('post-banner.edit');
+
+Route::put('/update/{id}', [BannerController::class, 'update'])->name('post-banner.update');
+
+// deleting the services
+
+Route::get('/remove-banner/{banner}', [BannerController::class, 'destroy'])->name('remove-banner.destroy');
