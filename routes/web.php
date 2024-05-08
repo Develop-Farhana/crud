@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CustomerfrontController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
@@ -77,3 +78,8 @@ Route::put('/update/{id}', [BannerController::class, 'update'])->name('post-bann
 Route::get('/remove-banner/{banner}', [BannerController::class, 'destroy'])->name('remove-banner.destroy');
 
 
+//customer
+
+Route::get('customer',[CustomerController::class,'index']);
+Route::get('banner-front',[FrontController::class,'showBanner']);
+Route::get('banner-front',[CustomerfrontController::class,'showCustomer']);
